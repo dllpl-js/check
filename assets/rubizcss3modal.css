@@ -1,0 +1,773 @@
+@charset "utf-8";
+
+/*
+~  ****************************************************************
+~  
+~  RuBizCSS3Modal v1.4 - Стильное CSS3 модальное окно
+~  
+~  WEB: https://sergeychunkevich.com/go-RuBizCSS3Modal
+~  
+~  ----------------------------------------------------------------
+~  
+~  (c) Эффективные Инструменты Для Бизнеса в Интернет
+~  (c) https://sergeychunkevich.com
+~  
+~  ****************************************************************
+*/
+
+
+/* КНОПКА
+-----------------------------------------------------*/
+
+.RuBizCSS3Modal_button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+
+/* ОСНОВА ОКНА
+-----------------------------------------------------*/
+
+.RuBizCSS3Modal * {
+	-webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.RuBizCSS3Modal {
+    background: rgba(0,0,0,0.5);
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    overflow: scroll;
+    pointer-events: none;
+    justify-content: center;
+    align-items: center;
+    -webkit-box-align: center;
+     -webkit-box-pack: center;
+       -ms-flex-align: center;
+        -ms-flex-pack: center;
+    -webkit-transition: opacity 0.3s ease-in;
+            transition: opacity 0.3s ease-in;
+    z-index: 999999;
+}
+    .RuBizCSS3Modal:target {
+        opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+        pointer-events: auto;
+    }
+
+
+/* КОНТЕНТ
+-----------------------------------------------------*/
+
+.RuBizCSS3Modal_content {
+    background: #fff;
+    max-width: 620px;
+	min-width: 290px;
+    font-family: arial, sans-serif;
+    margin: 20px auto;
+    padding: 0 20px 10px 20px;
+    position: relative;
+	border-radius: 3px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.3);
+    z-index: 999998;
+}
+    /* заголовок */
+    .RuBizCSS3Modal_content .rb_zagolovok {
+    	background: rgba(0,0,0,0.1);
+    	position: relative;
+    	color: #444;
+        margin: 0 -20px 10px -20px;
+    	padding: 0.5em 2em 0.5em 1em;
+    	text-align: center;
+    	font-size: 1.5em;
+    	font-weight: bold;
+    	border-radius: 3px 3px 0 0;
+    }
+    /* простой текст в окне */
+    .RuBizCSS3Modal_content .rb_text {
+    	font-size: 19px;
+    	color: #555;
+    	margin: 0;
+    	padding: 5px 0;
+    	line-height: 27px;
+    }
+    /* картинка */
+    .RuBizCSS3Modal_content img {
+        width: 100%;
+        height: auto !important;
+    }
+
+@media only screen and (max-width: 599px) {
+            
+    .RuBizCSS3Modal_content {
+        margin: auto 10px;
+    }
+    	.RuBizCSS3Modal_content .rb_zagolovok {
+	    	font-size: 1.2em;
+    	}
+    	.RuBizCSS3Modal_content .rb_text {
+	    	font-size: 1em;
+	    	line-height: 22px;
+	    }
+   
+}
+
+
+/* ЗАКРЫТЬ ОКНО
+-----------------------------------------------------*/
+
+/* закрываем окно кликая вне окна */
+.o_close_RuBizCSS3Modal {
+    visibility: visible;
+    position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 999997;
+}
+
+/* закрываем окно кликая на крестик */
+.b_close_RuBizCSS3Modal,
+.b_close_RuBizCSS3Modal2 {
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    text-decoration: none  !important;
+	-webkit-transition: all 0.3s;
+	        transition: all 0.3s;
+}
+.b_close_RuBizCSS3Modal {
+    background: rgba(0,0,0,0.1);
+    color: #444;
+    padding: 0.5em 0.4em;
+    font-size: 1.5em;
+}
+    .b_close_RuBizCSS3Modal:hover {
+        background: rgba(0,0,0,0.2);
+        color: #444 !important;
+        text-decoration: none !important;
+    }
+
+.b_close_RuBizCSS3Modal2 {
+    color: #fff;
+    padding: 0 0.2em;
+    font-size: 1.65em;
+    line-height: 1.1em;
+}
+    .b_close_RuBizCSS3Modal2:hover {
+        color: #bbb !important;
+        text-decoration: none !important;
+    }
+
+@media only screen and (max-width: 599px) {
+	
+	.b_close_RuBizCSS3Modal2 {
+	    font-size: 1.8em;
+    }
+	
+}
+
+
+/* НАСТРОЙКИ ДЛЯ ВИДЕОПЛЕЕРА
+-----------------------------------------------------*/
+
+.RuBizCSS3Modal_VideoArea {
+	position: relative;
+	padding-bottom: 54.4%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+    margin: 10px 0 15px 0;
+    box-shadow: 0 0 4px rgba(0,0,0,0.8);
+}
+    .RuBizCSS3Modal_VideoArea iframe {
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    	width: 100%;
+    	height: 100%;
+        border: none;
+    }
+
+
+/* НАСТРОЙКИ ДЛЯ ФОРМЫ ПОДПИСКИ
+-----------------------------------------------------*/
+
+.RuBizCSS3Modal_optin {
+    color: #777;
+    text-align: center;
+    padding: 5px 0;
+}
+    .RuBizCSS3Modal-input * { margin: 0; padding: 0; }
+    .RuBizCSS3Modal_optin input::-webkit-input-placeholder { color:#999; }
+	.RuBizCSS3Modal_optin input:focus::-webkit-input-placeholder { color:#ccc; }
+	.RuBizCSS3Modal_optin input::-moz-placeholder { color:#555; }
+	.RuBizCSS3Modal_optin input:focus::-moz-placeholder { color:#aaa; }
+	.RuBizCSS3Modal_optin input:-ms-input-placeholder { color:#999; }
+	.RuBizCSS3Modal_optin input:focus:-ms-input-placeholder { color:#ccc; }
+    .RuBizCSS3Modal_optin .name,
+    .RuBizCSS3Modal_optin .email,
+    .RuBizCSS3Modal_optin .rubizproject-optin_name,
+    .RuBizCSS3Modal_optin .rubizproject-optin_email,
+    .RuBizCSS3Modal_optin input[type="text"],
+    .RuBizCSS3Modal_optin input[type="email"] {
+        width: 70%;
+        color: #999 !important;
+        font-size: 1.5em !important;
+        padding: 7px 10px 7px 10px !important;
+        margin: 5px 0 !important;
+        border: 1px solid #999;
+        outline: none;
+        display: inline-block;
+        text-align: center;
+        -webkit-appearance: none;
+        box-sizing: border-box;
+        border-radius: 0;
+        -webkit-transition: all ease .5s;
+                transition: all ease .5s;
+    }
+        .RuBizCSS3Modal_optin .name:hover,
+        .RuBizCSS3Modal_optin .email:hover,
+        .RuBizCSS3Modal_optin .rubizproject-optin_name:hover,
+        .RuBizCSS3Modal_optin .rubizproject-optin_email:hover,
+        .RuBizCSS3Modal_optin input[type="text"]:hover,
+        .RuBizCSS3Modal_optin input[type="email"]:hover {
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            -webkit-transition: all ease .5s;
+                    transition: all ease .5s;
+        }
+    /* кнопка */
+    .RuBizCSS3Modal_optin button,
+    .RuBizCSS3Modal_optin .sp-form .sp-button,
+    .RuBizCSS3Modal_optin input[type="submit"] {
+        background: -webkit-gradient(linear,left top,left bottom,color-stop(0.05,#ffd000),color-stop(1,#edba00));
+        background: -moz-linear-gradient(center top,#ffd000 5%,#edba00 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd000',endColorstr='#edba00');
+        background-color: #ffd000;
+        border: 1px solid rgba(0,0,0,0.1);
+        display: inline-block;
+        color: #b47800;
+        font-family: arial;
+        font-size: 22px;
+        font-weight: bold;
+        padding: 13px 25px;
+        margin: 10px;
+        text-decoration: none;
+        cursor: pointer;
+        text-align: center;
+        overflow: hidden;
+        vertical-align: middle;
+        outline: none;
+        border-radius: 5px;
+        box-shadow: 0px 1px 0px 0px rgba(250,250,250,0.6) inset, 0px -1px 0px 1px rgba(0,0,0,0.1) inset;
+    }
+        .RuBizCSS3Modal_optin button:hover,
+        .RuBizCSS3Modal_optin .sp-form .sp-button:hover,
+        .RuBizCSS3Modal_optin input[type="submit"]:hover {
+            background:-webkit-gradient(linear,left top,left bottom,color-stop(0.05,#edba00),color-stop(1,#ffd000));
+            background:-moz-linear-gradient(center top,#edba00 5%,#ffd000 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#edba00',endColorstr='#ffd000');
+            background-color:#edba00
+        }
+        .RuBizCSS3Modal_optin button:active,
+        .RuBizCSS3Modal_optin .sp-form .sp-button:active,
+        .RuBizCSS3Modal_optin input[type="submit"]:active {
+            position:relative;
+            top:1px
+        }
+        .RuBizCSS3Modal_optin button:focus,
+        .RuBizCSS3Modal_optin .sp-form .sp-button:focus,
+        .RuBizCSS3Modal_optin input[type="submit"]:focus {
+            outline: 0;
+        }
+        @media only screen and (max-width: 767px) {
+            
+            .RuBizCSS3Modal_optin .name,
+            .RuBizCSS3Modal_optin .email,
+            .RuBizCSS3Modal_optin .rubizproject-optin_name,
+            .RuBizCSS3Modal_optin .rubizproject-optin_email,
+            .RuBizCSS3Modal_optin input[type="text"],
+            .RuBizCSS3Modal_optin input[type="email"] {
+                font-size: 1em;
+            }
+            .RuBizCSS3Modal_optin button,
+            .RuBizCSS3Modal_optin input[type="submit"] {
+                font-size: 1.2em;
+                padding: 10px 15px;
+            }
+           
+        }
+    /* текст под кнопкой */
+    .rbmodal_nospam {
+        color: #ccc;
+        font-size: 0.9em;
+        margin-bottom: 10px;
+    }
+    
+    /* SendPulse Fix */
+    .RuBizCSS3Modal_optin .sp-form { margin: 0 !important; padding: 0 !important; border-style: none 0 !important; border-width: 0px 0 !important; border-color: transparent; border-radius: 0 !important; width: auto !important; max-width: 100% !important; font-family: Helvetica,Arial,sans-serif !important; line-height: 1 !important; }
+    .RuBizCSS3Modal_optin .rubizproject-optin_input,
+    .RuBizCSS3Modal_optin .rubizproject-optin_button { display: inline-block; }
+    .RuBizCSS3Modal_optin .rubizproject-optin_input { width: 100% !important; }
+	.RuBizCSS3Modal_optin .sp-form .sp-button,
+    .RuBizCSS3Modal_optin .sp-form .sp-form-control { line-height: auto !important; height: auto !important; }
+
+    /* MailerLite Fix */
+    .RuBizCSS3Modal_optin .ml-block-success { border: 2px dashed #000; }
+
+
+/* RB ProgressBar */
+.rb_progressbar {
+	background: #fff;
+    position: relative;
+    height: 20px;
+    border-radius: 8px;
+}
+    .rb_progressbar > span {
+	    background-color: #ff2a1b;
+	    display: block;
+	    position: relative;
+	    overflow: hidden;
+	    text-align: right;
+	    font-family: tahoma, arial, sans-serif;;
+	    font-size: 15px;
+	    color: #fff;
+	    font-weight: bold;
+	    height: 100%;
+	    padding: 0 10px 0 0;
+	    margin: 0;
+	    line-height: 20px;
+	    border-radius: 8px;
+	    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+	}
+	    .rb_progressbar > span:after {
+		    content: "";
+		    position: absolute;
+		    overflow: hidden;
+		    top: 0;
+		    left: 0;
+		    bottom: 0;
+		    right: 0;
+		    background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, rgba(255,255,255,0.2)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255,255,255,0.2)), color-stop(0.75, rgba(255, 255,255,0.2)), color-stop(0.75, transparent), to(transparent));
+		    background-image: -moz-linear-gradient( -45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%, transparent);
+            background-image: gradient(linear, 0 0, 100% 100%, color-stop(.25, rgba(255,255,255,0.2)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255,255,255,0.2)), color-stop(0.75, rgba(255, 255,255,0.2)), color-stop(0.75, transparent), to(transparent));
+		    z-index: 1;
+		    -webkit-background-size: 50px 50px;
+		       -moz-background-size: 50px 50px;
+		    -webkit-animation: move 3s linear infinite;
+		            animation: move 3s linear infinite;
+		}
+
+@-webkit-keyframes move {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+}
+
+.rb_orange > span { background-color: #f5a65c; }
+.rb_blue > span { background-color: #3ea6d9; }
+.rb_green > span { background-color: #8ecf57; }
+.rb_grey > span { background-color: #b9babc; }
+.rb_red > span { background-color: #ff2a1b; }
+
+
+
+/* ЭФФЕКТЫ ПОЯВЛЕНИЯ ОКНА
+-----------------------------------------------------*/
+
+
+
+/*============================================
+    ЭФФЕКТ 1
+    - плавное появление из центра
+============================================*/
+
+.RuBizCSS3Modal:target .effect1 {
+	opacity: 1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	-webkit-transform: scale(1);
+	        transform: scale(1);
+}
+.effect1 {
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	-webkit-transform: scale(0.6);
+	        transform: scale(0.6);
+	-webkit-transition: all 0.3s;
+	        transition: all 0.3s;
+}
+
+
+/*============================================
+    ЭФФЕКТ 2
+    - плавное вертикальное перевертывание
+============================================*/
+
+.RuBizCSS3Modal  {
+	-webkit-perspective: 1300px;
+	        perspective: 1300px;
+}
+.RuBizCSS3Modal:target .effect2 {
+	opacity: 1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	-webkit-transform: rotateX(0deg);
+	        transform: rotateX(0deg);
+}
+.effect2 {
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	-webkit-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
+	-webkit-transform: rotateX(-70deg);
+	        transform: rotateX(-70deg);
+	-webkit-transition: all 0.3s;
+	        transition: all 0.3s;
+}
+
+
+/*============================================
+    ЭФФЕКТ 3
+    - супер-масштабирование
+============================================*/
+
+.RuBizCSS3Modal:target .effect3 {
+	opacity: 1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    -webkit-transform: scale(1);
+	        transform: scale(1);
+}
+.effect3 {
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    -webkit-transform: scale(2);
+	        transform: scale(2);
+	-webkit-transition: all 0.3s;
+	        transition: all 0.3s;
+}
+
+
+/*============================================
+    ЭФФЕКТ 4 (from Animate.css)
+    - Оппа! А вот и я!
+============================================*/
+
+.RuBizCSS3Modal:target .effect4 {
+	opacity: 1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-animation-name: tada;
+            animation-name: tada;
+}
+.effect4 {
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	-webkit-transition: all 0.3s;
+	        transition: all 0.3s;
+}
+
+@-webkit-keyframes tada {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%, 20% {
+    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%, 60%, 80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes tada {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%, 20% {
+    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%, 60%, 80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+
+/*============================================
+    ЭФФЕКТ 5 (from Animate.css)
+    - падение сверху
+============================================*/
+
+.RuBizCSS3Modal:target .effect5 {
+	opacity: 1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-animation-name: bounceInDown;
+            animation-name: bounceInDown;
+}
+.effect5 {
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	-webkit-transition: all 0.3s;
+	        transition: all 0.3s;
+}
+
+@-webkit-keyframes bounceInDown {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    -webkit-transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes bounceInDown {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    -webkit-transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/*============================================
+    ЭФФЕКТ 6 (from Animate.css)
+    - поворот по оси Y
+============================================*/
+
+.RuBizCSS3Modal:target .effect6 {
+	opacity: 1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-backface-visibility: visible !important;
+            backface-visibility: visible !important;
+    -webkit-animation-name: flipInY;
+            animation-name: flipInY;
+}
+.effect6 {
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	-webkit-transition: all 0.3s;
+	        transition: all 0.3s;
+}
+
+@-webkit-keyframes flipInY {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+  }
+
+  to {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+@keyframes flipInY {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+  }
+
+  to {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+
+/*============================================
+    ЭФФЕКТ 7 (from Animate.css)
+    - мигание
+============================================*/
+
+.RuBizCSS3Modal:target .effect7 {
+	opacity: 1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-backface-visibility: visible !important;
+            backface-visibility: visible !important;
+    -webkit-animation-name: flash;
+            animation-name: flash;
+}
+.effect7 {
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	-webkit-transition: all 0.3s;
+	        transition: all 0.3s;
+}
+
+@-webkit-keyframes flash {
+  from, 50%, to {
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
+
+  25%, 75% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  }
+}
+
+@keyframes flash {
+  from, 50%, to {
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
+
+  25%, 75% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  }
+}
